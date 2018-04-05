@@ -16,7 +16,7 @@ class MP3Importer
     def import
         self.files.map do |file_name|
             song = Song.new_by_filename(file_name)
-            Song.find_or_create_by_name(song.artist.name)
+            Artis.find_or_create_by_name(song.artist.name)
 
         end
     end
