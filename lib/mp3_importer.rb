@@ -17,6 +17,7 @@ class MP3Importer
         self.files.each do |file_name|
             song = Song.new_by_filename(file_name)
             if Artist.all.detect{|artist| artist.name == song.artist.name}.nil?
+                song.artist.add_song(song)
                 Artist.all << song.artist
             end
 
